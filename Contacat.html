@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Furniture Store</title>
+    <link rel="icon" type="image/x-icon" href="./assest/img/Group 10.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="./assest/css/homes.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: aliceblue;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Navbar Styles */
+        
+       header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    z-index: 1000; /* Add this line */
+}
+
+header.black {
+    background:white;
+}
+
+        /* Contact Section */
+        .contact-hero {
+            background: linear-gradient(135deg, #1d1f25 0%, #764ba2 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .contact-hero p {
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info-section {
+            padding: 60px 0;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-card i {
+            font-size: 48px;
+            color: #0d0d0f;
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #1f1f1f;
+        }
+
+        .contact-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .contact-card a {
+            color: #0c0d0f;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Form */
+        .contact-form-section {
+            background: white;
+            padding: 60px 0;
+        }
+
+        .form-container {
+            background: aliceblue;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-container h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #1f1f1f;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #1f1f1f;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 60px 0;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+
+        /* Footer */
+        .footer-section {
+            background: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+
+        .footer-section .sendimg {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .subscribe-wrapper {
+            margin: 20px 0;
+        }
+
+        .subscribe-wrapper input {
+            padding: 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            flex: 1;
+        }
+
+        .subscribe-wrapper button {
+            background: #1f1f1f;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            margin-left: -50px;
+            cursor: pointer;
+        }
+
+        .firstrow, .scondtrow {
+            margin-bottom: 20px;
+        }
+
+        .firstrow h5, .scondtrow h5 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #1f1f1f;
+            font-weight: 700;
+        }
+
+        .firstrow p, .scondtrow p {
+            color: #666;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .firstrow p:hover, .scondtrow p:hover {
+            color: #667eea;
+        }
+
+        .honda p {
+            color: #666;
+        }
+
+        .hed {
+            gap: 20px;
+            justify-content: flex-end;
+        }
+
+        .hed p {
+            color: #666;
+            cursor: pointer;
+        }
+
+        .hed p:hover {
+            color: #667eea;
+        }
+
+        /* Overlay */
+        #overlay {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 998;
+            cursor: pointer;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 992px) {
+            .navbar .bx-menu {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                height: 100%;
+                width: 280px;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                transition: left 0.3s ease;
+                z-index: 999;
+                overflow-y: auto;
+            }
+
+            .sidebar-logo {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .sidebar-logo img {
+                height: 40px;
+            }
+
+            .sidebar-logo .bx-x {
+                font-size: 30px;
+                cursor: pointer;
+                color: #1f1f1f;
+            }
+
+            .nav-links .links {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+
+            .nav-links .links li {
+                width: 100%;
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .buttonhed {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .contact-hero h1 {
+                font-size: 36px;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .contact-hero {
+                padding: 60px 20px;
+            }
+
+            .contact-hero h1 {
+                font-size: 32px;
+            }
+
+            .contact-hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="overlay" onclick="closeNav()"></div>
+
+            <header class="sticky-top">
+            <nav>
+                <div class="navbar">
+                    <i class='bx bx-menu'></i>
+                    <div class="logo"><img src="./assest/img/logo-in-web.png" class="hots"></div>
+                    <div class="nav-links">
+                        <div class="sidebar-logo">
+                            <img src="./assest/img/Group 10.png">
+                            <i class='bx bx-x'></i>
+                        </div>
+                        <ul class="links mb-0">
+                            <li><a href="./homes.html">Shop Now</a></li>
+                            <li>
+                                <a href="./Home-Furniture.html">Home Furniture</a>
+                            </li>
+                            <li>
+                                <a href="./CATEGORY PAGE.html">Living Room</a>
+
+                            </li>
+                            <li><a href="./about.html">About Us</a></li>
+                            <li><a href="./Contacat.html">Contact Us</a></li>
+
+                        </ul>
+
+                        <!--    <div class="bakups">
+          <div class="honts">
+            <a href="#">My Account</a> 
+            <i class="fa-regular fa-user" ></i>
+          </div>
+          <div class="honts py-3">
+            <a href="#">Language</a> 
+            <i class="fa-solid fa-building-columns" ></i>
+          </div>
+          <div class="honts">
+            <a href="#">Currency</a> 
+            <i class="fa-solid fa-earth-americas" ></i>
+          
+          </div>
+        </div>  -->
+
+                    </div>
+                    <div class="search">
+                        <div class="buttonhed">
+                            <button type="button" class=" firstbutton"><a href="./login.html">Log in</a></button>
+                            <button type="button" class=" secondbutton">Get Started</button>
+                        </div>
+                    </div>
+                    <div class="search-box d-none">
+                        <i class='bx bx-search'></i>
+                        <div class="input-box">
+                            <input type="text" placeholder="Search...">
+                        </div>
+                    </div>
+                    <div class="how">
+                        <a href="./CART-PAGE.html">
+                            <i class="fa-solid fa-cart-shopping pro-by "></i>
+                        </a>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+    <!-- Hero Section -->
+    
+
+    <!-- Contact Info Cards -->
+    <section class="contact-info-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>Mon-Fri from 8am to 5pm</p>
+                        <a href="tel:+1234567890">+1 (234) 567-890</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>We'll respond within 24 hours</p>
+                        <a href="mailto:info@furniture.com">info@furniture.com</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-card">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <h3>Visit Us</h3>
+                        <p>Come say hello at our office</p>
+                        <a href="#">123 Furniture Street, NY 10001</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="form-container">
+                        <h2>Send Us A Message</h2>
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name *</label>
+                                        <input type="text" id="firstName" name="firstName" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name *</label>
+                                        <input type="text" id="lastName" name="lastName" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.2412648750455!2d-73.98823492346197!3d40.75889537139207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <div class="img">
+                        <div class="logo"><img src="./assest/img/logo-in-web.png" class="hots"></div>
+                    </div>
+                    <div class="endp">
+                        <p>Join our newsletter to stay up to date on features and releases.</p>
+                        <div class="subscribe-wrapper">
+                            <form class="d-flex align-items-center">
+                                <input class="form-control" type="email" placeholder="Enter your email" />
+                                <button class="px-3" type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                        <div class="hold mt-4">
+                            <p>By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="menend">
+                        <div class="row align-items-center">
+                            <div class="col-4">
+                                <div class="firstrow">
+                                    <h5>About Us</h5>
+                                    <p>FAQ</p>
+                                    <p>Contact</p>
+                                    <p>Returns</p>
+                                    <p>Blog</p>
+                                    <p>Shipping</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="firstrow">
+                                    <h5>Customer Support</h5>
+                                    <p>Affiliates</p>
+                                    <p>Apple Pay Payments</p>
+                                    <p>Returns</p>
+                                    <p>Returns Policy</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="scondtrow">
+                                    <h5>Follow Us</h5>
+                                    <p><i class="fa-brands fa-facebook-f pe-2"></i> Facebook</p>
+                                    <p><i class="fa-brands fa-instagram pe-2"></i> Instagram</p>
+                                    <p><i class="fa-brands fa-twitter pe-2"></i> Twitter</p>
+                                    <p><i class="fa-brands fa-linkedin-in pe-2"></i> LinkedIn</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row konha pt-4 mt-4" style="border-top: 1px solid #eee;">
+                <div class="col-sm-6">
+                    <div class="honda">
+                        <p>© 2024 Furniture Store. All rights reserved</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="hed d-flex">
+                        <p>Privacy Policy</p>
+                        <p>Terms of Service</p>
+                        <p>Cookies Settings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById('navLinks').style.left = '0';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeNav() {
+            document.getElementById('navLinks').style.left = '-100%';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('black');
+            } else {
+                header.classList.remove('black');
+            }
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links .links a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 992) {
+                    closeNav();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

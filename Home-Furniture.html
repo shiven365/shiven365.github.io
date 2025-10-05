@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Furniture - Furniture Store</title>
+    <link rel="icon" type="image/x-icon" href="./assest/img/Group 10.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+     <link rel="stylesheet" href="./assest/css/homes.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: aliceblue;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Navbar Styles */
+        
+
+        /* Navbar Styles */
+header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    z-index: 1000; /* Add this line */
+}
+
+header.black {
+    background:white;
+}
+
+      
+
+        /* Category Section */
+        .category-section {
+            padding: 80px 0;
+            background: aliceblue;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            font-weight: bold;
+            color: #1f1f1f;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .category-card-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .category-card-content h3 {
+            font-size: 24px;
+            color: #1f1f1f;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .category-card-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .category-card-content a {
+            color: #191a1d;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: gap 0.3s ease;
+        }
+
+        .category-card-content a:hover {
+            gap: 12px;
+        }
+
+        /* Featured Products */
+        .featured-products {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .product-card {
+            background: aliceblue;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-info h4 {
+            font-size: 20px;
+            color: #1f1f1f;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .product-info .price {
+            font-size: 24px;
+            color: #151618;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-info .add-to-cart {
+            background: #1f1f1f;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .product-info .add-to-cart:hover {
+            background: #333;
+            transform: scale(1.02);
+        }
+
+        /* Why Choose Us */
+        .why-choose-section {
+            padding: 80px 0;
+            background: aliceblue;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .feature-box i {
+            font-size: 48px;
+            color: #0c0d0e;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-box h3 {
+            font-size: 22px;
+            color: #1f1f1f;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .feature-box p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* Footer */
+        .footer-section {
+            background: white;
+            padding: 60px 0 30px;
+            margin-top: 0;
+        }
+
+        .footer-section .sendimg {
+            max-width: 200px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-section .endp p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .subscribe-wrapper {
+            margin: 20px 0;
+        }
+
+        .subscribe-wrapper form {
+            position: relative;
+        }
+
+        .subscribe-wrapper input {
+            padding: 12px 120px 12px 20px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            width: 100%;
+            font-size: 15px;
+        }
+
+        .subscribe-wrapper input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .subscribe-wrapper button {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #1f1f1f;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .subscribe-wrapper button:hover {
+            background: #333;
+        }
+
+        .hold {
+            margin-top: 15px;
+        }
+
+        .hold p {
+            font-size: 13px;
+            color: #999;
+        }
+
+        .firstrow, .scondtrow {
+            margin-bottom: 20px;
+        }
+
+        .firstrow h5, .scondtrow h5 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #1f1f1f;
+            font-weight: 700;
+        }
+
+        .firstrow p, .scondtrow p {
+            color: #666;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            font-size: 15px;
+        }
+
+        .firstrow p:hover, .scondtrow p:hover {
+            color: #0e0f12;
+        }
+
+        .konha {
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            margin-top: 40px;
+        }
+
+        .honda p {
+            color: #666;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .hed {
+            gap: 20px;
+            justify-content: flex-end;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .hed p {
+            color: #666;
+            cursor: pointer;
+            margin: 0;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .hed p:hover {
+            color: #667eea;
+        }
+
+        /* Overlay */
+        #overlay {
+            position: fixed;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 998;
+            cursor: pointer;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 992px) {
+            .navbar .bx-menu {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                height: 100%;
+                width: 280px;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                transition: left 0.3s ease;
+                z-index: 999;
+                overflow-y: auto;
+            }
+
+            .sidebar-logo {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .sidebar-logo img {
+                height: 40px;
+            }
+
+            .sidebar-logo .bx-x {
+                font-size: 30px;
+                cursor: pointer;
+                color: #1f1f1f;
+            }
+
+            .nav-links .links {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+
+            .nav-links .links li {
+                width: 100%;
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+            }
+
+            .buttonhed {
+                flex-direction: column;
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .firstbutton,
+            .secondbutton {
+                width: 100%;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .category-section,
+            .featured-products,
+            .why-choose-section {
+                padding: 50px 0;
+            }
+
+            .hed {
+                justify-content: flex-start;
+                margin-top: 15px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .section-title p {
+                font-size: 16px;
+            }
+
+            .category-card img,
+            .product-card img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="overlay" onclick="closeNav()"></div>
+
+    
+    <header class="sticky-top">
+            <nav>
+                <div class="navbar">
+                    <i class='bx bx-menu'></i>
+                    <div class="logo"><img src="./assest/img/logo-in-web.png" class="hots"></div>
+                    <div class="nav-links">
+                        <div class="sidebar-logo">
+                            <img src="./assest/img/Group 10.png">
+                            <i class='bx bx-x'></i>
+                        </div>
+                        <ul class="links mb-0">
+                            <li><a href="./homes.html">Shop Now</a></li>
+                            <li>
+                                <a href="./Home-Furniture.html">Home Furniture</a>
+                            </li>
+                            <li>
+                                <a href="./CATEGORY PAGE.html">Living Room</a>
+
+                            </li>
+                            <li><a href="./about.html">About Us</a></li>
+                            <li><a href="./Contacat.html">Contact Us</a></li>
+
+                        </ul>
+
+                        <!--    <div class="bakups">
+          <div class="honts">
+            <a href="#">My Account</a> 
+            <i class="fa-regular fa-user" ></i>
+          </div>
+          <div class="honts py-3">
+            <a href="#">Language</a> 
+            <i class="fa-solid fa-building-columns" ></i>
+          </div>
+          <div class="honts">
+            <a href="#">Currency</a> 
+            <i class="fa-solid fa-earth-americas" ></i>
+          
+          </div>
+        </div>  -->
+
+                    </div>
+                    <div class="search">
+                        <div class="buttonhed">
+                            <button type="button" class=" firstbutton"><a href="./login.html">Log in</a></button>
+                            <button type="button" class=" secondbutton">Get Started</button>
+                        </div>
+                    </div>
+                    <div class="search-box d-none">
+                        <i class='bx bx-search'></i>
+                        <div class="input-box">
+                            <input type="text" placeholder="Search...">
+                        </div>
+                    </div>
+                    <div class="how">
+                        <a href="./CART-PAGE.html">
+                            <i class="fa-solid fa-cart-shopping pro-by "></i>
+                        </a>
+                    </div>
+
+                </div>
+            </nav>
+        </header>
+
+    <!-- Category Section -->
+    <section class="category-section" id="categories">
+        <div class="container">
+            <div class="section-title">
+                <h2>Shop By Room</h2>
+                <p>Find the perfect furniture for every space in your home</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500" alt="Living Room">
+                        <div class="category-card-content">
+                            <h3>Living Room</h3>
+                            <p>Sofas, coffee tables, TV stands & more</p>
+                            <a href="#">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=500" alt="Bedroom">
+                        <div class="category-card-content">
+                            <h3>Bedroom</h3>
+                            <p>Beds, wardrobes, nightstands & dressers</p>
+                            <a href="#">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=500" alt="Dining Room">
+                        <div class="category-card-content">
+                            <h3>Dining Room</h3>
+                            <p>Dining tables, chairs & storage</p>
+                            <a href="#">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=500" alt="Home Office">
+                        <div class="category-card-content">
+                            <h3>Home Office</h3>
+                            <p>Desks, chairs, bookshelves & storage</p>
+                            <a href="#">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=500" alt="Kids Room">
+                        <div class="category-card-content">
+                            <h3>Kids Room</h3>
+                            <p>Beds, study tables & storage solutions</p>
+                            <a href="#">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card">
+                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=500" alt="Outdoor">
+                        <div class="category-card-content">
+                            <h3>Outdoor</h3>
+                            <p>Patio furniture, garden sets & more</p>
+                            <a href="#">Shop Now <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+                <p>Handpicked favorites from our latest collection</p>
+            </div>
+            <div class="row" id="productGrid">
+                <!-- Products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Us</h2>
+                <p>Your satisfaction is our priority</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <h3>Free Delivery</h3>
+                        <p>Free shipping on orders over $500</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h3>Secure Payment</h3>
+                        <p>100% secure payment methods</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <h3>Easy Returns</h3>
+                        <p>30-day return guarantee</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="feature-box">
+                        <i class="fa-solid fa-headset"></i>
+                        <h3>24/7 Support</h3>
+                        <p>Dedicated customer support</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="img">
+                        <img src="./assest/img/logo-in-web.png" class="sendimg" alt="Logo" />
+                    </div>
+                    <div class="endp">
+                        <p>Join our newsletter to stay up to date on features and releases.</p>
+                        <div class="subscribe-wrapper">
+                            <form class="d-flex align-items-center">
+                                <input class="form-control" type="email" placeholder="Enter your email" />
+                                <button class="px-3" type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                        <div class="hold mt-4">
+                            <p>By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-7">
+                    <div class="menend">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="firstrow">
+                                    <h5>About Us</h5>
+                                    <p>FAQ</p>
+                                    <p>Contact</p>
+                                    <p>Returns</p>
+                                    <p>Blog</p>
+                                    <p>Shipping</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="firstrow">
+                                    <h5>Customer Support</h5>
+                                    <p>Affiliates</p>
+                                    <p>Apple Pay Payments</p>
+                                    <p>Returns</p>
+                                    <p>Returns Policy</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="scondtrow">
+                                    <h5>Follow Us</h5>
+                                    <p><i class="fa-brands fa-facebook-f pe-2"></i> Facebook</p>
+                                    <p><i class="fa-brands fa-instagram pe-2"></i> Instagram</p>
+                                    <p><i class="fa-brands fa-twitter pe-2"></i> Twitter</p>
+                                    <p><i class="fa-brands fa-linkedin-in pe-2"></i> LinkedIn</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row konha">
+                <div class="col-sm-6">
+                    <div class="honda">
+                        <p>© 2024 Furniture Store. All rights reserved</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="hed">
+                        <p>Privacy Policy</p>
+                        <p>Terms of Service</p>
+                        <p>Cookies Settings</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sample products data
+        const products = [
+            {
+                id: 1,
+                name: 'Modern Sofa Set',
+                price: 899.99,
+                image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400'
+            },
+            {
+                id: 2,
+                name: 'Wooden Dining Table',
+                price: 649.99,
+                image: 'https://images.unsplash.com/photo-1617806118233-18e1de247200?w=400'
+            },
+            {
+                id: 3,
+                name: 'Luxury Bed Frame',
+                price: 1299.99,
+                image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=400'
+            },
+            {
+                id: 4,
+                name: 'Office Desk',
+                price: 449.99,
+                image: 'https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=400'
+            },
+            {
+                id: 5,
+                name: 'Bookshelf Unit',
+                price: 329.99,
+                image: 'https://images.unsplash.com/photo-1594620302200-9a762244a156?w=400'
+            },
+            {
+                id: 6,
+                name: 'Coffee Table',
+                price: 199.99,
+                image: 'https://images.unsplash.com/photo-1611269154421-4e27233ac5c7?w=400'
+            }
+        ];
+
+        // Load products
+        function loadProducts() {
+            const productGrid = document.getElementById('productGrid');
+            products.forEach(product => {
+                const col = document.createElement('div');
+                col.className = 'col-lg-4 col-md-6';
+                col.innerHTML = `
+                    <div class="product-card">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="product-info">
+                            <h4>${product.name}</h4>
+                            <div class="price">$${product.price}</div>
+                            <button class="add-to-cart" onclick="addToCart(${product.id})">
+                                <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+                productGrid.appendChild(col);
+            });
+        }
+
+        function addToCart(productId) {
+            alert('Product added to cart!');
+        }
+
+        // Navigation functions
+        function openNav() {
+            document.getElementById('navLinks').style.left = '0';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closeNav() {
+            document.getElementById('navLinks').style.left = '-100%';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('black');
+            } else {
+                header.classList.remove('black');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links .links a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 992) {
+                    closeNav();
+                }
+            });
+        });
+
+        // Load products on page load
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+</body>
+</html>
